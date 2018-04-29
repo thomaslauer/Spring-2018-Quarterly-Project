@@ -10,7 +10,8 @@ def main():
 
     sample = sd.rec(fs*duration, samplerate=fs, channels=1, dtype='int16', blocking=1)
     
-    sample = sd.playrec(sample, samplerate=fs, channels=1, dtype='int16', blocking=1)
+    sd.play(sample, fs)
+    
     print(len(sample))
     plt.figure(1)
     plt.title('Signal Wave...')

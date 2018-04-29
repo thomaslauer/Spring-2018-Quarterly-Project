@@ -1,6 +1,6 @@
 import numpy as nu
 import sounddevice as sd
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 fs = 44100  # Set sampling frequency to 48000 hz
 duration = 2

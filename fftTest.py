@@ -1,16 +1,22 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy import fftpack
+import sounddevice as sd
+import matplotlib.pyplot as plt
 
+fs = 10000  # Set sampling frequency to 44100 hz
+duration = 1
 
 def main():
-    f = 10  # Frequency, in cycles per second, or Hertz
-    f_s = 100  # Sampling rate, or number of measurements per second
+    #f = 1  # Frequency, in cycles per second, or Hertz
+    #f_s = 100  # Sampling rate, or number of measurements per second
 
-    t = np.linspace(0, 2, 2 * f_s, endpoint=False)
-    x = np.sin(f * 2 * np.pi * t)
+    #t = np.linspace(0, 2, 2 * f_s, endpoint=False)
+    #x = np.sin(f * 2 * np.pi * t)
 
-    plotFFT(x, f_s)
+    sample = sd.rec(int(fs*duration), samplerate=fs, channels=1, dtype='int16', blocking=1)
+
+    plotFFT(sample, fs)
 
 def performFFT(sample, fs):
 
@@ -26,7 +32,7 @@ def plotFFT(sample, fs):
     ax.set_xlabel('Frequency in Hertz [Hz]')
     ax.set_ylabel('Frequency Domain (Spectrum) Magnitude')
     ax.set_xlim(-fs / 2, fs / 2)
-    ax.set_ylim(-5, 110)
+    #ax.set_ylim(-5, 110)
     plt.show()
 
 main()

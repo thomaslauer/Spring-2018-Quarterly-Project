@@ -9,7 +9,10 @@ duration = 3
 def main():
 
     sample = sd.rec(int(fs*duration), samplerate=fs, channels=1, dtype='int16', blocking=1)
-    fft = np.fft.rfft(sample)
+
+    sample = np.delete(sample,np.s_[0:int(len(sample)*0.05)])
+
+
     sd.play(sample, fs)    
     
     print(len(sample))

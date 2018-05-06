@@ -1,16 +1,16 @@
-import numpy as nu
+import numpy as np
 import sounddevice as sd
 import matplotlib.pyplot as plt
 
 fs = 44100  # Set sampling frequency to 44100 hz
-duration = 2
+duration = 3
 
 
 def main():
 
-    sample = sd.rec(fs*duration, samplerate=fs, channels=1, dtype='int16', blocking=1)
-    
-    sd.play(sample, fs)
+    sample = sd.rec(int(fs*duration), samplerate=fs, channels=1, dtype='int16', blocking=1)
+    fft = np.fft.rfft(sample)
+    sd.play(sample, fs)    
     
     print(len(sample))
     plt.figure(1)

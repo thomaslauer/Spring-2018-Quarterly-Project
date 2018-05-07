@@ -13,7 +13,7 @@ def main():
     sample = np.delete(sample,np.s_[0:int(len(sample)*0.05)])
 
 
-    sd.play(sample, fs)    
+    sd.play(sample, fs)
     
     print(len(sample))
     plt.figure(1)

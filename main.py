@@ -5,9 +5,12 @@ import sounddevice as sd
 import matplotlib.pyplot as plt
 import time
 
+# Import Adafruit library and create instance of REST client.
+from Adafruit_IO import Client
+aio = Client('853a9a70bd2c42508bfcb17a60105477')
+
 fs = 44100  # Set sampling frequency to 44100 hz
 duration = 2
-
 
 def main():
     while True:
@@ -20,12 +23,17 @@ def main():
 
         freqs, fft = performFFT(sample, fs)
         integral = integrateFFT(freqs, fft, 500, 3000)
-        print("The integral from 500 to 3000 was " + str(integral)) 
+        print("The integral from 500 to 3000 was " + str(integral))
+
+        # Send the ON/OFF status to a visible graph feed.
+        aio.send('testConstantSend', integral)
+    	# print("Current status: " + integral)
+
         time.sleep(1)
 
 
 def performFFT(sample, fs):
-    fft = fftpack.fft(sample) 
+    fft = fftpack.fft(sample)
     freqs = fftpack.fftfreq(len(fft)) * fs
     return freqs, np.abs(fft)
 

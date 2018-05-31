@@ -19,7 +19,11 @@ def main():
     
     sample = sample - average
     print("Finished, average is now " + str(np.average(sample)))
-    
+
+    freqs, fft = performFFT(sample, fs)
+    integral = integrateFFT(freqs, fft, 500, 3000)
+    print("The integral from 500 to 3000 was " + str(integral))
+
     plotFFT(sample, fs)
 
 def performFFT(sample, fs):
@@ -49,4 +53,14 @@ def plotFFT(sample, fs):
     print("finished plotting")
     plt.show()
 
+def integrateFFT(freqs, fft, low, high):
+    sum = 0
+    numSamples = 0
+    print(len(freqs))
+    for i in range(len(freqs)):
+        if freqs[i] > low and freqs[i] < high:
+            numSamples += 1
+            # print("frequency " + str(freqs[i]) + " value " + str(fft[i]))
+            sum += fft[i]
+    return sum / numSamples
 main()

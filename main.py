@@ -33,13 +33,13 @@ def main():
         aio.send('volume-level', integral) 
         
         if integral > threshold:
-            if lastTFValue != -1
+            if lastTFValue != -1:
                 aio.send('on-slash-off', lastTFValue)
             
             aio.send('on-slash-off', 1)
             lastTFValue = 1
         else:   
-            if lastTFValue != -1
+            if lastTFValue != -1:
                 aio.send('on-slash-off', lastTFValue)
             
             aio.send('on-slash-off', 0)

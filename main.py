@@ -11,6 +11,7 @@ aio = Client('853a9a70bd2c42508bfcb17a60105477')
 
 fs = 44100  # Set sampling frequency to 44100 hz
 duration = 2
+sleepTime = 2
 
 def main():
     while True:
@@ -23,13 +24,8 @@ def main():
 
         freqs, fft = performFFT(sample, fs)
         integral = integrateFFT(freqs, fft, 500, 3000)
-        print("The integral from 500 to 3000 was " + str(integral))
-
-        # Send the ON/OFF status to a visible graph feed.
-        aio.send('testConstantSend', integral)
-    	# print("Current status: " + integral)
-
-        time.sleep(1)
+        print(str(integral))
+        time.sleep(sleepTime)
 
 
 def performFFT(sample, fs):

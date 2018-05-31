@@ -22,7 +22,7 @@ def main():
 
     freqs, fft = performFFT(sample, fs)
     integral = integrateFFT(freqs, fft, 50, 3000)
-    print("The integral from 500 to 3000 was " + str(integral))
+    print("The integral from 50 to 3000 was " + str(integral))
 
     plotFFT(sample, fs)
 

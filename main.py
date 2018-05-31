@@ -3,13 +3,14 @@ import numpy as np
 from scipy import fftpack
 import sounddevice as sd
 import time
+import math
 
 # Import Adafruit library and create instance of REST client.
 from Adafruit_IO import Client
 aio = Client('853a9a70bd2c42508bfcb17a60105477')
 
 fs = 44100  # Set sampling frequency to 44100 hz
-duration = 2
+duration = 8
 sleepTime = 2
 threshold = 100000
 
@@ -21,6 +22,9 @@ def main():
         average = np.average(sample)
         sample = sample - average
 
+        maxVal = np.amax(sample)
+        db = 20 * math.log10(maxVal)
+        aio.send('decibel-volume', db)
 
         freqs, fft = performFFT(sample, fs)
         integral = integrateFFT(freqs, fft, 500, 3000)

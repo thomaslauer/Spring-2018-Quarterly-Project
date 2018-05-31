@@ -21,7 +21,7 @@ def main():
 
         freqs, fft = performFFT(sample, fs)
         integral = integrateFFT(freqs, fft, 500, 3000)
-        print("The integral from 500 to 3000 was " + str(integral)) 
+        print(str(integral)) 
         time.sleep(sleepTime)
 
 

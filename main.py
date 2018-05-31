@@ -12,7 +12,7 @@ aio = Client('853a9a70bd2c42508bfcb17a60105477')
 fs = 44100  # Set sampling frequency to 44100 hz
 duration = 8
 sleepTime = 2
-threshold = 100000
+threshold = 2000
 
 def main():
     while True:

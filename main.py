@@ -15,7 +15,7 @@ sleepTime = 0
 threshold = 2000
 
 def main():
-    lastTFValue = 0
+    lastTFValue = -1
     while True:
         sample = sd.rec(int(fs*duration), samplerate=fs, channels=1, dtype='int16', blocking=1)
         sample = np.delete(sample,np.s_[0:int(len(sample)*0.05)])
@@ -33,11 +33,15 @@ def main():
         aio.send('volume-level', integral) 
         
         if integral > threshold:
-            aio.send('on-slash-off', lastTFValue)
+            if lastTFValue != -1
+                aio.send('on-slash-off', lastTFValue)
+            
             aio.send('on-slash-off', 1)
             lastTFValue = 1
-        else:
-            aio.send('on-slash-off', lastTFValue)
+        else:   
+            if lastTFValue != -1
+                aio.send('on-slash-off', lastTFValue)
+            
             aio.send('on-slash-off', 0)
             lastTFValue = 0
             

@@ -3,38 +3,33 @@ import numpy as np
 from scipy import fftpack
 import sounddevice as sd
 import matplotlib.pyplot as plt
+import time
 
 fs = 44100  # Set sampling frequency to 44100 hz
-duration = 1.5
+duration = 2
 
 
 def main():
+    while True:
+        sample = sd.rec(int(fs*duration), samplerate=fs, channels=1, dtype='int16', blocking=1)
+        sample = np.delete(sample,np.s_[0:int(len(sample)*0.05)])
 
-    sample = sd.rec(int(fs*duration), samplerate=fs, channels=1, dtype='int16', blocking=1)
-    sample = np.delete(sample,np.s_[0:int(len(sample)*0.05)])
-    print("finished recording sound")
+        average = np.average(sample)
+        sample = sample - average
 
-    print("Normalizing sample")
-    average = np.average(sample)
-    sample = sample - average
 
-    print("Finished, average is now " + str(np.average(sample)))
+        freqs, fft = performFFT(sample, fs)
+        integral = integrateFFT(freqs, fft, 500, 3000)
+        print("The integral from 500 to 3000 was " + str(integral)) 
+        time.sleep(1)
 
-    freqs, fft = performFFT(sample, fs)
-    integral = integrateFFT(freqs, fft, 500, 3000)
-    print("The integral from 500 to 3000 was " + str(integral))
-
-    plotFFT(sample, fs)
 
 def performFFT(sample, fs):
-    print("running fft")
     fft = fftpack.fft(sample) 
     freqs = fftpack.fftfreq(len(fft)) * fs
-    print("fft finished")
     return freqs, np.abs(fft)
 
 def plotFFT(sample, fs):
-    print("plotting sample")
     fig, ax = plt.subplots()
     ax.plot(sample)
     fig, ax = plt.subplots()
@@ -56,7 +51,6 @@ def plotFFT(sample, fs):
 def integrateFFT(freqs, fft, low, high):
     sum = 0
     numSamples = 0
-    print(len(freqs))
     for i in range(len(freqs)):
         if freqs[i] > low and freqs[i] < high:
             numSamples += 1

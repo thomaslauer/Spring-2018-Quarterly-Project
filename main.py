@@ -11,7 +11,8 @@ aio = Client('853a9a70bd2c42508bfcb17a60105477')
 
 fs = 44100  # Set sampling frequency to 44100 hz
 duration = 2
-sleepTime = 8
+sleepTime = 2
+threshold = 100000
 
 def main():
     while True:
@@ -25,8 +26,13 @@ def main():
         freqs, fft = performFFT(sample, fs)
         integral = integrateFFT(freqs, fft, 500, 3000)
 
-        aio.send('testConstantSend', integral) 
-
+        aio.send('volume-level', integral) 
+        
+        if integral > threshold:
+            aio.send('on-slash-off', 1)
+        else:
+            aio.send('on-slash-off', 0)
+            
         print(str(integral))
         time.sleep(sleepTime)
 

@@ -27,7 +27,7 @@ def main():
         aio.send('decibel-volume', db)
 
         freqs, fft = performFFT(sample, fs)
-        integral = integrateFFT(freqs, fft, 500, 3000)
+        integral = integrateFFT(freqs, fft, 250, 3000)
 
         aio.send('volume-level', integral) 
         

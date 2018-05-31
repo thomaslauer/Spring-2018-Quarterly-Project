@@ -21,8 +21,8 @@ def main():
     print("Finished, average is now " + str(np.average(sample)))
 
     freqs, fft = performFFT(sample, fs)
-    integral = integrateFFT(freqs, fft, 50, 3000)
-    print("The integral from 50 to 3000 was " + str(integral))
+    integral = integrateFFT(freqs, fft, 250, 3000)
+    print("The integral from 250 to 3000 was " + str(integral))
 
     plotFFT(sample, fs)
 

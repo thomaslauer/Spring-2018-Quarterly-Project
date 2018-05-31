@@ -2,7 +2,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy import fftpack
 import sounddevice as sd
-import matplotlib.pyplot as plt
 import time
 
 # Import Adafruit library and create instance of REST client.

@@ -4,18 +4,20 @@ from scipy import fftpack
 import sounddevice as sd
 import matplotlib.pyplot as plt
 
-fs = 10000  # Set sampling frequency to 44100 hz
+fs = 44100  # Set sampling frequency to 44100 hz
 duration = 1.5
+
 
 def main():
 
     sample = sd.rec(int(fs*duration), samplerate=fs, channels=1, dtype='int16', blocking=1)
-    sample = np.delete(sample,np.s_[0:int(len(sample)*0.20)])
+    sample = np.delete(sample,np.s_[0:int(len(sample)*0.05)])
     print("finished recording sound")
 
     print("Normalizing sample")
     average = np.average(sample)
-    sample = (sample - average) / average
+    
+    sample = sample - average
     print("Finished, average is now " + str(np.average(sample)))
     
     plotFFT(sample, fs)

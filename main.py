@@ -7,6 +7,7 @@ import time
 
 fs = 44100  # Set sampling frequency to 44100 hz
 duration = 2
+sleepTime = 2
 
 
 def main():
@@ -21,7 +22,7 @@ def main():
         freqs, fft = performFFT(sample, fs)
         integral = integrateFFT(freqs, fft, 500, 3000)
         print("The integral from 500 to 3000 was " + str(integral)) 
-        time.sleep(1)
+        time.sleep(sleepTime)
 
 
 def performFFT(sample, fs):

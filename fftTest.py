@@ -46,7 +46,7 @@ def plotFFT(sample, fs):
     ax.set_xlabel('Frequency in Hertz [Hz]')
     ax.set_ylabel('Frequency Domain (Spectrum) Magnitude')
 
-    ax.set_xlim(0, 5000)
+    ax.set_xlim(0, 2000)
 
     #ax.set_xlim(-fs / 2, fs / 2)
     #ax.set_ylim(-5, 110)
@@ -63,4 +63,6 @@ def integrateFFT(freqs, fft, low, high):
             # print("frequency " + str(freqs[i]) + " value " + str(fft[i]))
             sum += fft[i]
     return sum / numSamples
+
+
 main()

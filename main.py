@@ -24,6 +24,9 @@ def main():
 
         freqs, fft = performFFT(sample, fs)
         integral = integrateFFT(freqs, fft, 500, 3000)
+
+        aio.send('testConstantSend', integral) 
+
         print(str(integral))
         time.sleep(sleepTime)
 

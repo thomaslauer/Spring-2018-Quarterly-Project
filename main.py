@@ -12,7 +12,7 @@ aio = Client('853a9a70bd2c42508bfcb17a60105477')
 fs = 44100  # Set sampling frequency to 44100 hz
 duration = 10
 sleepTime = 0
-threshold = 2500
+threshold = 250
 
 def main():
     lastTFValue = -1
@@ -28,7 +28,7 @@ def main():
         aio.send('decibel-volume', db)
 
         freqs, fft = performFFT(sample, fs)
-        integral = integrateFFT(freqs, fft, 250, 3000)
+        integral = integrateFFT(freqs, fft, 250, 3000)/duration
 
         aio.send('volume-level', integral) 
         

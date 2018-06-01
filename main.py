@@ -10,7 +10,7 @@ from Adafruit_IO import Client
 aio = Client('853a9a70bd2c42508bfcb17a60105477')
 
 fs = 44100  # Set sampling frequency to 44100 hz
-duration = 10:
+duration = 10
 sleepTime = 0
 threshold = 3000
 

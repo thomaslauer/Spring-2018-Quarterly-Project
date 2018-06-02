@@ -1,6 +1,6 @@
 # Spring-2018-Quarterly-Project
 
-Introduction
+# Introduction
 
 The concept behind this project came from the realization of a common dilemma that we all faced living in residence halls—we shared laundry rooms with limited numbers of laundry machines. This meant that often times, people would have to walk to the laundry room initially without laundry to check if a laundry machine was available. If a laundry machine was available, then people would have to walk back to their rooms and make a second trip back to the laundry room this time actually with laundry, sometimes only to find that the laundry machines had been occupied again between the time they made the two trips to the laundry room.
 

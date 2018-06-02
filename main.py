@@ -10,11 +10,15 @@ from Adafruit_IO import Client
 aio = Client('853a9a70bd2c42508bfcb17a60105477')
 
 fs = 44100  # Set sampling frequency to 44100 hz
-duration = 20
+duration = 1
 sleepTime = 0
 threshold = 250
+ARRAY_SIZE = 4
 
 def main():
+
+    averageArray = np.zeros(ARRAY_SIZE)
+
     lastTFValue = -1
     while True:
         sample = sd.rec(int(fs*duration), samplerate=fs, channels=1, dtype='int16', blocking=1)
@@ -29,6 +33,17 @@ def main():
 
         freqs, fft = performFFT(sample, fs)
         integral = integrateFFT(freqs, fft, 250, 3000)/duration
+
+        print("Array is " + str(averageArray))
+        np.roll(averageArray, 1)
+        if integral > threshold:
+            averageArray[0] = 1
+        else:
+            averageArray[0] = 0
+
+        print("Average is " + str(np.average(averageArray)))
+        print("Array is " + str(averageArray))
+
 
         aio.send('volume-level', integral) 
         
@@ -68,8 +83,6 @@ def plotFFT(sample, fs):
 
     ax.set_xlim(0, 2000)
 
-    #ax.set_xlim(-fs / 2, fs / 2)
-    #ax.set_ylim(-5, 110)
     print("finished plotting")
     plt.show()
 
@@ -79,7 +92,6 @@ def integrateFFT(freqs, fft, low, high):
     for i in range(len(freqs)):
         if freqs[i] > low and freqs[i] < high:
             numSamples += 1
-            # print("frequency " + str(freqs[i]) + " value " + str(fft[i]))
             sum += fft[i]
     return sum / numSamples
 

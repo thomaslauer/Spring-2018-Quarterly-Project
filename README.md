@@ -28,7 +28,7 @@ Our code needs to have many Python packages installed. Currently, we’re using 
 
 To install all the pure Python dependencies, all you should need to do is run the commands:
 
-`< sudo pip3 install cffi >`
+`< sudo pip3 install cffi >` and
 `< sudo pip3 install numpy scipy matplotlib adafruit-io >`
 
 This assumes that the correct versions of the packages are available from the package servers. We had an issue where the highest available version of Python was 3.5, but we NumPy was requiring 3.6. To solve this, we manually compiled Python 3.6 and side installed it. This just changes the commands from “python3” and “pip3” to “python3.6” and “pip3.6”. 

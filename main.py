@@ -14,7 +14,7 @@ duration = 10
 sleepTime = 0
 threshold = 250
 ARRAY_SIZE = 6
-ARRAY_THRESHOLD = 0.5
+ARRAY_THRESHOLD = .33
 
 def main():
 

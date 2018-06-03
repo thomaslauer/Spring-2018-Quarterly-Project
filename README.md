@@ -50,8 +50,10 @@ This should make two plots, one of the raw sound sample, and another of a Fourie
 ### Here are some example images:
 
 ![Frequency Plot](/screenshots/Frequency Plot.png)
+Format: ![Frequency Plot](https://github.com/thomaslauer/Spring-2018-Quarterly-Project/blob/master/screenshots/Frequency%20Plot.png)
 
 ![Sound Plot](/screenshots/Sound Plot.png)
+Format: ![Sound Plot](https://github.com/thomaslauer/Spring-2018-Quarterly-Project/blob/master/screenshots/Sound%20Plot.png)
 
 The plot on the left is the raw sound sample, and the one on the right is the Fourier transform. We can see that the fourier transform picks out the frequencies.
 
@@ -71,6 +73,7 @@ After you set up the correct data feeds on Adafruit IO, the code should start se
 ### Here’s what our dashboard looks like:
 
 ![Dashboard](/screenshots/Dashbord.png)
+Format: ![Frequency Plot](https://github.com/thomaslauer/Spring-2018-Quarterly-Project/blob/master/screenshots/Dashboard.png)
 
 You can see that we are displaying line graphs of the volume level in the laundry room as well as if the machines are available.
 

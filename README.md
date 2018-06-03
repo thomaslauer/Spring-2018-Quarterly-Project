@@ -28,8 +28,8 @@ Our code needs to have many Python packages installed. Currently, we’re using 
 
 To install all the pure Python dependencies, all you should need to do is run the commands:
 
-#### sudo pip3 install cffi
-#### sudo pip3 install numpy scipy matplotlib adafruit-io
+`< sudo pip3 install cffi >`
+`< sudo pip3 install numpy scipy matplotlib adafruit-io >`
 
 This assumes that the correct versions of the packages are available from the package servers. We had an issue where the highest available version of Python was 3.5, but we NumPy was requiring 3.6. To solve this, we manually compiled Python 3.6 and side installed it. This just changes the commands from “python3” and “pip3” to “python3.6” and “pip3.6”. 
 
@@ -89,37 +89,37 @@ Overall, our project provided a great learning opportunity, as we used open-sour
 
 ## References
 
-Adafruit IO Basics Overview
+### Adafruit IO Basics Overview
 https://learn.adafruit.com/adafruit-io-basics-feeds/overview
 
 Explained how to create dashboards, feeds, and displays on adafruit to display the information from the Pi.
 
 
-Adafruit IO Python Client Library
+### Adafruit IO Python Client Library
 https://github.com/adafruit/io-client-python
 
 Helped us figure out how to process and send data to an online display for our product to be monitored from a remote source.
 
 
-But what is the Fourier Transform? A visual introduction.
+### But what is the Fourier Transform? A visual introduction.
 https://www.youtube.com/watch?v=spUNpyF58BY
 
 Guided our understanding of the applications of the Fourier Transform with an animated introduction to the concept.
 
 
-Elegant SciPy by Harriet Dashnow, Stéfan van der Walt, Juan Nunez-Iglesias
+### Elegant SciPy by Harriet Dashnow, Stéfan van der Walt, Juan Nunez-Iglesias
 https://www.safaribooksonline.com/library/view/elegant-scipy/9781491922927/ch04.html
 
 Provided templates and guidance for us to understand the applications of using SciPy to analyze sound.
 
 
-Installing Python 3.6 on Raspberry Pi
+### Installing Python 3.6 on Raspberry Pi
 https://gist.github.com/dschep/24aa61672a2092246eaca2824400d37f
 
 Guided us through figuring out how to connect our written code onto a Raspberry Pi.
 
 
-SciPy.org
+### SciPy.org
 https://scipy.org/
 
 Equipped us with libraries, documentation, and tutorials for processing scientific data through open-source software.

@@ -95,10 +95,12 @@ https://learn.adafruit.com/adafruit-io-basics-feeds/overview
 Explained how to create dashboards, feeds, and displays on adafruit to display the information from the Pi.
 
 
+
 ### Adafruit IO Python Client Library
 https://github.com/adafruit/io-client-python
 
 Helped us figure out how to process and send data to an online display for our product to be monitored from a remote source.
+
 
 
 ### But what is the Fourier Transform? A visual introduction.
@@ -107,16 +109,19 @@ https://www.youtube.com/watch?v=spUNpyF58BY
 Guided our understanding of the applications of the Fourier Transform with an animated introduction to the concept.
 
 
+
 ### Elegant SciPy by Harriet Dashnow, Stéfan van der Walt, Juan Nunez-Iglesias
 https://www.safaribooksonline.com/library/view/elegant-scipy/9781491922927/ch04.html
 
 Provided templates and guidance for us to understand the applications of using SciPy to analyze sound.
 
 
+
 ### Installing Python 3.6 on Raspberry Pi
 https://gist.github.com/dschep/24aa61672a2092246eaca2824400d37f
 
 Guided us through figuring out how to connect our written code onto a Raspberry Pi.
+
 
 
 ### SciPy.org

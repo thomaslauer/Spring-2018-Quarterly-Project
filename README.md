@@ -24,7 +24,7 @@ Any standard microphone should work, as long as it works with Linux without driv
 
 ### Installing Python and Packages:
 
-Our code needs to have many Python packages installed. Currently, we’re using Python’s sounddevice to record our sounds, NumPy to store and manipulate the data, SciPy to run a Fourier transform that helps with filtering frequencies, matplotlib to display the data locally, and Adafruit IO to display the data online
+Our code needs to have many Python packages installed. Currently, we’re using sounddevice, a Python module, to record our sounds, NumPy to store and manipulate the data, SciPy to run a Fourier transform that helps with filtering frequencies, matplotlib to display the data locally, and Adafruit IO to display the data online
 
 To install all the pure Python dependencies, all you should need to do is run the commands:
 
@@ -49,15 +49,16 @@ This should make two plots, one of the raw sound sample, and another of a Fourie
 
 ### Here are some example images:
 
-![Frequency Plot](https://github.com/thomaslauer/Spring-2018-Quarterly-Project/blob/master/screenshots/Frequency%20Plot.png)
-
 ![Sound Plot](https://github.com/thomaslauer/Spring-2018-Quarterly-Project/blob/master/screenshots/Sound%20Plot.png)
 
-The plot on the left is the raw sound sample, and the one on the right is the Fourier transform. We can see that the fourier transform picks out the frequencies.
+![Frequency Plot](https://github.com/thomaslauer/Spring-2018-Quarterly-Project/blob/master/screenshots/Frequency%20Plot.png)
+
+
+The plot on the top is the raw sound sample, and the one on the bottom is the Fourier transform. We can see that the fourier transform picks out the frequencies.
 
 ### Install Raspberry Pi:
 
-The next step is to mount the Pi in the washing machine room. We just used double-sided foam tape, any mounting system really works. If it can be mounted closer to the washing machines it will work better because they are the most quiet.
+The next step is to mount the Pi in the washing machine room. We just used double-sided foam tape, any mounting system really works. The washing machines make much less noise than the dryers, so mounting the Raspberry Pi closer to the washing machines will improve their results. This way, the washing machine sounds won’t be mixed as much with the dryer sounds, since dryers are loud enough to be heard from anywhere in the room.
 
 ### Pick a configure code:
 

@@ -48,12 +48,14 @@ def main():
                     aio.send('on-slash-off', lastTFValue)
                 
                 aio.send('on-slash-off', 1)
+                aio.send('status-text', 'Wash On')
                 lastTFValue = 1
             else:   
                 if lastTFValue != -1:
                     aio.send('on-slash-off', lastTFValue)
                 
                 aio.send('on-slash-off', 0)
+                aio.send('status-text', 'Wash Off')
                 lastTFValue = 0
         
         print(str(integral))

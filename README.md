@@ -70,8 +70,7 @@ After you set up the correct data feeds on Adafruit IO, the code should start se
 
 ### Here’s what our dashboard looks like:
 
-![Dashboard](/screenshots/Dashbord.png)
-Format: ![Frequency Plot](https://github.com/thomaslauer/Spring-2018-Quarterly-Project/blob/master/screenshots/Dashboard.png)
+![Frequency Plot](https://github.com/thomaslauer/Spring-2018-Quarterly-Project/blob/master/screenshots/Dashboard.png)
 
 You can see that we are displaying line graphs of the volume level in the laundry room as well as if the machines are available.
 
